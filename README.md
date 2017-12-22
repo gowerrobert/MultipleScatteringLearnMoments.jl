@@ -5,8 +5,6 @@ A Julia library for learning the radius and concentration of a material by using
  
  
 
-This method is particularly efficient at solving acoustic problems with lots of
-circular scatterers set in an infinite domain.
 
 ## Get started
 This package is tested and works for Julia 0.6 and 0.5.
