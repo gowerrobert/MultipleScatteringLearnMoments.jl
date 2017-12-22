@@ -1,0 +1,43 @@
+## Functions for centered moments of moments feature maps
+const m1s = [1,2,4]; # <-- this is a sin in Julia. Always use const for global variable, otherwise Julia can not properly specialise (dispatch) the functions which use these constants.
+m2lim = 10;
+function apply_mofm(X::Array{Float64}, rowcounts::Int64, tdl::Array{ResponseData},options)
+   lenresponse = length(tdl[1].response)
+   lentds = length(tdl);
+   responses = [real(td.response[:]) for td in tdl]
+   t_arr = tdl[1].x_arr
+
+   for i = eachindex(m1s)
+        # mean_moment = mean(get_moment_vec(responses,i))
+        # X[rowcounts,(i-1)*m2lim+1] = mean_moment # acts like the magnitude of the moment
+        i_moment = t_arr.*get_moment_vec(responses,m1s[i])[:]
+        # the below gives: the expected time of the peak, the standard deviation of the peak, etc...
+        for j = 1:m2lim
+           X[rowcounts,(i-1)*m2lim+j] = get_moment_vec(i_moment,j);
+        end
+    end
+
+end
+
+function get_num_mofm_features(tdl::Array{ResponseData})
+    lenresponse = m2lim*length(m1s);
+    return lenresponse;
+end
+
+#"returns the  mom_num-th moment of resps, where resps is a vector whose elements can be either numbers or vectors."
+function get_moment_vec(resps, mom_num)
+    mu = mean(resps);
+    if(mom_num==1) return mu end;
+    num_sim = length(resps);
+    if(num_sim<2)
+        println("Not enough simulations to calculate momments, return zeros")
+        return 0.0*mu
+    end
+    moment = sum((mu - r).^mom_num for r in resps)./(num_sim-1.0)
+    return sign(moment).*abs(moment).^(1.0/mom_num) # I think the sign does make a difference, as it changes with different labels
+end
+
+
+# Defines the feature map
+fmofm = FeatureMap(apply_mofm,get_num_mofm_features, "mofmmap");
+##end functions for identity feature map.
