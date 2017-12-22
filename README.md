@@ -15,7 +15,7 @@ First you will need to get the training data....
 
 To get started, download and include the library
 ```julia
-Pkg.clone("https://github.com/jondea/MultipleScattering.jl.git")
+Pkg.clone("https://github.com/gowerrobert/MultiplyScattering_learn_moments")
 using MultipleScattering
 ```
 
