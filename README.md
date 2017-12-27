@@ -10,12 +10,12 @@ A Julia library for learning the radius and concentration of a material by using
 This package is tested and works for Julia 0.6 and 0.5.
 
 First you will need to get the training data....
-[MultiplyScattering](https://github.com/jondea/MultipleScattering.jl).
+[MultipleScattering](https://github.com/jondea/MultipleScattering.jl).
 
 
 To get started, download and include the library
 ```julia
-Pkg.clone("https://github.com/gowerrobert/MultiplyScattering_learn_moments")
+Pkg.clone("https://github.com/gowerrobert/MultipleScatteringLearnMoments")
 using MultipleScattering
 ```
 
