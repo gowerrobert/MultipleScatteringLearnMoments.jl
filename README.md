@@ -48,7 +48,8 @@ cross_valid.ipynb
 ## Acknowledgements and contributing
 
 For a reference and further reading see:
-```Learning about random media from near-surface backscattering:
+```
+Learning about random media from near-surface backscattering:
 using machine learning to measure particle size and concentration.
 Artur L Gower,  Robert M Gower, Jonathan Deakin,  William J Parnell, and I. David Abrahams
 ```
