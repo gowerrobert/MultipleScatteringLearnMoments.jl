@@ -32,15 +32,18 @@ using MultipleScatteringLearnMoments
 
 ## Simple example
 see
-
+```
+jupyter notebook
 demo_L2.ipynb
-
+```
 
 ## More examples
 
 To generate the regularization parameter lambda and the kernel parameters using crossvalidation, run 
-
+```
+jupyter notebook
 cross_valid.ipynb
+```
 
 ## Acknowledgements and contributing
 
