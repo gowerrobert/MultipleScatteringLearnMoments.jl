@@ -31,18 +31,27 @@ using MultipleScatteringLearnMoments
 ```
 
 ## Simple example
-Use jupyter notebook to run the first demo  
+Navigate to the root directory. It will look like
+```
+~/.julia/v0.5/MultipleScatteringLearnMoments
+```
+if you have julia version v0.5. From this folder, launder jupyter in a terminal by typing
 ```
 jupyter notebook
-demo_L2.ipynb
 ```
+From with jupyter notebook, open the demo file
+
+```
+test/demo_L2.ipynb
+```
+
 
 ## More examples
 
 To generate the regularization parameter lambda and the kernel parameters using crossvalidation, run 
 ```
 jupyter notebook
-cross_valid.ipynb
+test/cross_valid.ipynb
 ```
 
 ## Acknowledgements and contributing
