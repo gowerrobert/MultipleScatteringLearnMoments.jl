@@ -24,17 +24,25 @@ This package is tested and works for Julia 0.6 and 0.5.
 
 To get started, download and include the library
 ```julia
-Pkg.clone("https://github.com/gowerrobert/MultipleScatteringLearnMoments")
+Pkg.clone("https://github.com/gowerrobert/MultipleScatteringLearnMoments.jl")
 using MultipleScattering
 using MultipleScatteringLearnMoments
 
 ```
 
 ## Simple example
-see
+Navigate to the root directory. It will look like
+```
+~/.julia/v0.5/MultipleScatteringLearnMoments
+```
+if you have julia version v0.5. From this folder, launch jupyter in a terminal by typing
 ```
 jupyter notebook
-demo_L2.ipynb
+```
+From within jupyter notebook, open the demo file
+
+```
+test/demo_L2.ipynb
 ```
 
 ## More examples
@@ -42,7 +50,7 @@ demo_L2.ipynb
 To generate the regularization parameter lambda and the kernel parameters using crossvalidation, run 
 ```
 jupyter notebook
-cross_valid.ipynb
+test/cross_valid.ipynb
 ```
 
 ## Acknowledgements and contributing
