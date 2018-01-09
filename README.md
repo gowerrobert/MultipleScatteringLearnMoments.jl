@@ -35,16 +35,15 @@ Navigate to the root directory. It will look like
 ```
 ~/.julia/v0.5/MultipleScatteringLearnMoments
 ```
-if you have julia version v0.5. From this folder, launder jupyter in a terminal by typing
+if you have julia version v0.5. From this folder, launch jupyter in a terminal by typing
 ```
 jupyter notebook
 ```
-From with jupyter notebook, open the demo file
+From within jupyter notebook, open the demo file
 
 ```
 test/demo_L2.ipynb
 ```
-
 
 ## More examples
 
