@@ -31,7 +31,7 @@ using MultipleScatteringLearnMoments
 ```
 
 ## Simple example
-see
+Use jupyter notebook to run the first demo  
 ```
 jupyter notebook
 demo_L2.ipynb
