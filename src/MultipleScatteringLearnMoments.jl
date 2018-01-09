@@ -1,7 +1,4 @@
 module MultipleScatteringLearnMoments
-# # Workaround for importing module that's not in a expected path
-# include("../src/MultiplyScattering_learn_moments.jl")
-# #importall MultiplyScattering_learn_moments
 
 using MultipleScattering
 using LaTeXStrings
@@ -19,8 +16,6 @@ export fmmoments, fmmean, fmofm_full
 # The functions exported
 export setup_ml, fit_L2, fit_L1, test_linear, get_crossvalid_parameters, predict_linear 
 export learning_saturation_curve_grid_volfrac_rad_crossvalidation, cross_valid_inner, load_moments
-
-
 
 type ML_model
     fiterror::Float64   
