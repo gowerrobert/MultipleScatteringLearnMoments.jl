@@ -24,7 +24,7 @@ This package is tested and works for Julia 0.6 and 0.5.
 
 To get started, download and include the library
 ```julia
-Pkg.clone("https://github.com/gowerrobert/MultipleScatteringLearnMoments")
+Pkg.clone("https://github.com/gowerrobert/MultipleScatteringLearnMoments.jl")
 using MultipleScattering
 using MultipleScatteringLearnMoments
 
