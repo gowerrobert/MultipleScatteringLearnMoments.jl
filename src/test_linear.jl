@@ -1,7 +1,7 @@
 #Calculate the test error of prediction using the model ml on the test data set
 function test_linear(test::Array{StatisticalMoments{Float64}}, testname::AbstractString, fm::FeatureMap,  ml::ML_model, options, output_type::AbstractString;
   title="default", strdir="default") #km_transform::Function,
-  # Get all volfracs and voliuses
+  # Get all volfracs and radiuses
   volfracs= union([td.label[1] for td in test]);
   radiuses = union([td.label[2] for td in test]);
   concentrations = union([td.label[1]/(td.label[2]^2) for td in test]);
@@ -12,7 +12,7 @@ function test_linear(test::Array{StatisticalMoments{Float64}}, testname::Abstrac
   if(output_type =="radius")
     meanhypo = mean(radiuses);
   elseif(output_type =="volumefraction")
-    meanhypo = mean(volfracs); #volume fraction        
+    meanhypo = mean(volfracs); #volume fraction
   else
     meanhypo = mean(concentrations); #concentration
   end
@@ -36,8 +36,6 @@ function test_linear(test::Array{StatisticalMoments{Float64}}, testname::Abstrac
     println(output_type," ",floor(1000.0*absoluterror)/10.0, "% absolute test error")
     ## Plotting the regression
     #println("Plotting...check folder ./figures for the plots scatvol-$(ml.name)")
-    try gr() catch pyplot() end # if gr() not available use pyplot()
-    #pgfplots();
     gap = maximum(reptd)-minimum(reptd);
     if title == "default" title = "Rsqd = $(round(100*Rsqd)/100)" end
     scatter(reptd,pred,  xlabel = "true $(output_type)",
@@ -50,23 +48,22 @@ function test_linear(test::Array{StatisticalMoments{Float64}}, testname::Abstrac
      open("./test_output.txt", "w") do f
         write(f, "$(output_type)\n")
             for td in reptd
-               write(f, "$(td)\n") 
+               write(f, "$(td)\n")
             end
-        write(f, "\n\n")     
+        write(f, "\n\n")
         write(f, "predicted\n")
             for td in pred
-               write(f, "$(td)\n") 
-            end  
-        write(f, "\n\n")              
+               write(f, "$(td)\n")
+            end
+        write(f, "\n\n")
         write(f, "line\n")
             for td in line
-               write(f, "$(td)\n") 
-            end                         
-     end  
+               write(f, "$(td)\n")
+            end
+     end
 #     savefig("$(strdir)scat-$(ml.name)-$(testname).svg");
     savefig("$(strdir)scat-$(ml.name)-$(testname).pdf");
     println("R squared error $(output_type)= ",round(100*Rsqd)/100) #round(100*Rsqd)/100
-    gr()
     testerror_heatmap(test, fm, ml, options, output_type; strdir=strdir)
   end
 
