@@ -5,7 +5,7 @@ function testerror_heatmap(test::Array{StatisticalMoments{Float64}},fm::FeatureM
 
      pairs = unique([ td.label[1]/(td.label[2]^2), td.label[2]] for td in test);
     #pairs = unique([ td.volfrac/(td.particles[1].r^2), td.particles[1].r] for td in tds);
-    zerohypo = mean(pairs.^2);
+    zerohypo = mean(p.^2 for p in pairs);
     Ferrvol = mom -> Ferr_internal(mom, ml,fm,zerohypo,options, output_type)
     plotmom_heatmap(test,Ferrvol)
     if strdir == "default"
@@ -27,8 +27,8 @@ function Ferr_internal(mom::StatisticalMoments, ml::ML_model,fm::FeatureMap, zer
     return ferror;
 
 end
-    
-    function plotmom_heatmap(moms::Array{StatisticalMoments{Float64}}, contract_tds = mom ->  mom.label[2] )
+
+function plotmom_heatmap(moms::Array{StatisticalMoments{Float64}}, contract_tds = mom ->  mom.label[2] )
   label_f = mom -> [mom.label[1],mom.label[2]]
   labels = union([ label_f(td)  for td in moms])
   #tds_arr = [filter(td -> label_f(td) == l, moms) for l in labels]
@@ -43,5 +43,3 @@ end
   end
   heatmap(vols,as,z_matrix, xlabel="numfrac", ylabel="radius")
 end
-        
-        
