@@ -1,10 +1,17 @@
+## Here we show how to create the moments data bunnytime.mnts.jld and bunnytimetest.mnts, from the full simulated data (which is kept in a Zenodo repo).
+
+# There is also a copy of moments data on Zenodo, which can de download using:
+  # # Download data from permenant repo
+  # download("https://zenodo.org/record/1126642/files/train.mnts.jld", "train.mnts.jld")
+  # download("https://zenodo.org/record/1126642/files/test.mnts.jld", "test.mnts.jld")
+
 using MultipleScattering
 using JLD
 
 model_to_label(f) = (f.volfrac,f.particles[1].r)
 impulse = get_gaussian_freq_impulse(1.0,2.48)
 
-# Download data, can take a long time.
+# Download full simulated data. Note, can take a long time.
   #training set
   download("https://zenodo.org/record/1126642/files/bunny.mst.jld", "bunny.mst.jld")
   #test set
