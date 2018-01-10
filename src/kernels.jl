@@ -18,12 +18,12 @@ function get_kernel_function(kernelname::AbstractString, kernelparam::Float64)
     end
 end
 
-function apply_identity(X::Array{Float64}, x::Array{Float64}, kernelparam::Float64)
+function apply_identity(X::Array{Float64}, x, kernelparam::Float64)
     return x;
 end
 
 
-function apply_gaussk(X::Array{Float64}, x::Array{Float64},kernelparam::Float64)
+function apply_gaussk(X::Array{Float64}, x,kernelparam::Float64)
     sX  =size(X);
     gx = zeros(1,sX[1])
     for i =1:sX[1]
@@ -32,7 +32,7 @@ function apply_gaussk(X::Array{Float64}, x::Array{Float64},kernelparam::Float64)
     return gx;
 end
 
-function apply_OrnUhlenk(X::Array{Float64}, x::Array{Float64},kernelparam::Float64) # Ornstein–Uhlenbeck
+function apply_OrnUhlenk(X::Array{Float64}, x,kernelparam::Float64) # Ornstein–Uhlenbeck
     sX  =size(X);
     gx = zeros(1,sX[1])
     for i =1:sX[1]
@@ -42,7 +42,7 @@ function apply_OrnUhlenk(X::Array{Float64}, x::Array{Float64},kernelparam::Float
 end
 
 
-function apply_rationquadk(X::Array{Float64}, x::Array{Float64},kernelparam::Float64) # Rational quadratic
+function apply_rationquadk(X::Array{Float64}, x,kernelparam::Float64) # Rational quadratic
     sX  =size(X);
     gx = zeros(1,sX[1])
     for i =1:sX[1]
