@@ -1,5 +1,5 @@
 
-## Here we show how to create the moments data, used by this package, from the simulations generated from [MultipleScattering.jl](https://github.com/jondea/MultipleScattering.jl). If you are unfamilar with Julia, please use  [JuliaBox](https://www.juliabox.com/).
+## Here we show how to create the moments data, used by this package, from the simulations generated from [MultipleScattering.jl](https://github.com/jondea/MultipleScattering.jl). The files my be too large to be downloaded when using [JuliaBox](https://www.juliabox.com/).
 
 First download the full simulated data to the current directory, this takes a while.
 ```julia
